@@ -1,0 +1,195 @@
+.container {
+    padding: 2rem 4rem;
+}
+
+.container h2 {
+    font-weight: 400;
+    font-size: 30px;
+    text-align: center;
+}
+
+.container .titles {
+    margin: 2rem 0 1rem 0;
+}
+
+.container .titles h3 {
+    font-size: 14px;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.item,
+.container .titles {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 3fr 1fr 1fr 1fr;
+    column-gap: 0.5rem;
+}
+
+.item {
+    border-top: 1px solid rgb(187, 187, 187);
+    padding: 1rem 0;
+}
+
+.container .titles .title {
+    padding-left: 0.5rem;
+}
+
+.container .titles .total {
+    padding-right: 0.5rem;
+    justify-self: right;
+}
+
+.item .product {
+    display: flex;
+}
+
+.item .product img {
+    width: 100px;
+    max-width: 100%;
+    margin-right: 1rem;
+}
+
+.item .product h3 {
+    font-weight: 400;
+}
+
+.item .product button {
+    border: none;
+    outline: none;
+    margin-top: 0.7rem;
+    cursor: pointer;
+    background: none;
+    color: gray;
+}
+
+.item .product button:hover {
+    color: black;
+}
+
+.productQuantity {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    width: 130px;
+    max-width: 100%;
+    border: 0.5px solid rgb(177, 177, 177);
+    border-radius: 5px;
+}
+
+.productQuantity button {
+    border: none;
+    outline: none;
+    background: none;
+    padding: 0.7rem 1.5rem;
+    cursor: pointer;
+}
+
+.productQuantity .count {
+    padding: 0.6rem 0;
+}
+
+.totalPrice {
+    justify-self: right;
+    padding-right: 0.5rem;
+    font-weight: 700;
+}
+
+.summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-top: 1px solid rgb(187, 187, 187);
+    padding-top: 2rem;
+}
+
+.summary .clear {
+    width: 130px;
+    max-width: 100%;
+    height: 40px;
+    border-radius: 5px;
+    font-weight: 400;
+    letter-spacing: 1.15px;
+    border: 0.5px solid rgb(177, 177, 177);
+    color: gray;
+    background: none;
+    outline: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.clear:hover {
+    background-color: rgb(126, 126, 126);
+    color: white;
+}
+
+.checkout {
+    width: 270px;
+    max-width: 100%;
+}
+
+.checkout .subtotal {
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+}
+
+.checkout .subtotal .amount {
+    font-weight: 700;
+}
+
+.checkout p {
+    font-size: 14px;
+    font-weight: 100;
+    margin: 0.5rem 0;
+}
+
+.checkout button {
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+    font-weight: 400;
+    border: 1px solid #00bfff;
+    outline: none;
+    cursor: pointer;
+    background-color: white;
+    color: #00bfff;
+    letter-spacing: 1.15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.checkout button:hover {
+    background-color: #00bfff;
+    color: white;
+}
+
+.continueShopping,
+.startShopping {
+    margin-top: 1rem;
+}
+
+.continueShopping a,
+.startShopping a {
+    color: gray;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.continueShopping a span,
+.startShopping a span {
+    margin-left: 0.5rem;
+}
+
+.cartEmpty {
+    font-size: 20px;
+    margin-top: 2rem;
+    color: rgb(84, 84, 84);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

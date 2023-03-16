@@ -13,6 +13,7 @@ import styles from "./Home.module.css";
 
 const Home = () => {
     const { data, error, isLoading } = useGetAllProductsQuery(null);
+    const navigate = useNavigate();
     const dispatch = useDispatch();
 
     const handleAddToCart = (product: {
@@ -46,6 +47,7 @@ const Home = () => {
             | undefined;
     }) => {
         dispatch(addToCart(product));
+        navigate("/cart");
     };
     return (
         <>
