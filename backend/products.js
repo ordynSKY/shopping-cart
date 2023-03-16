@@ -41,6 +41,20 @@ const products = [
         price: 1300,
         image: "./images/iphone12purple.jpeg",
     },
+    {
+        id: 7,
+        name: "iPhone 12 Black",
+        desc: "11-inch (diagonal)",
+        price: 1300,
+        image: "./images/iphone12.jpeg",
+    },
+    {
+        id: 8,
+        name: "iPhone 12 Purple",
+        desc: "12.9-inch (diagonal)",
+        price: 1300,
+        image: "./images/iphone12purple.jpeg",
+    },
 ];
 
 module.exports = products;

@@ -5,11 +5,48 @@ import {
     ReactFragment,
     ReactPortal,
 } from "react";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { addToCart } from "../../slices/cartSlice";
 import { useGetAllProductsQuery } from "../../slices/productsApi";
 import styles from "./Home.module.css";
 
 const Home = () => {
     const { data, error, isLoading } = useGetAllProductsQuery(null);
+    const dispatch = useDispatch();
+
+    const handleAddToCart = (product: {
+        id: Key | null | undefined;
+        name:
+            | string
+            | number
+            | boolean
+            | ReactElement<any, string | JSXElementConstructor<any>>
+            | ReactFragment
+            | null
+            | undefined;
+        image: string | undefined;
+        desc:
+            | string
+            | number
+            | boolean
+            | ReactElement<any, string | JSXElementConstructor<any>>
+            | ReactFragment
+            | ReactPortal
+            | null
+            | undefined;
+        price:
+            | string
+            | number
+            | boolean
+            | ReactElement<any, string | JSXElementConstructor<any>>
+            | ReactFragment
+            | ReactPortal
+            | null
+            | undefined;
+    }) => {
+        dispatch(addToCart(product));
+    };
     return (
         <>
             <div className={styles.container}>
@@ -79,7 +116,11 @@ const Home = () => {
                                                 {product.price}$
                                             </span>
                                         </div>
-                                        <button>
+                                        <button
+                                            onClick={() =>
+                                                handleAddToCart(product)
+                                            }
+                                        >
                                             <svg
                                                 xmlns="http://www.w3.org/2000/svg"
                                                 width="16"
