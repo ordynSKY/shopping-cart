@@ -1,0 +1,33 @@
+.navbar {
+    height: 70px;
+    background-color: #00bfff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 4rem;
+}
+
+.navbar h2 {
+    color: white;
+    font-size: 40px;
+}
+
+.cartIcon {
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+.cartQuantity {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 25px;
+    width: 25px;
+    background-color: white;
+    border-radius: 50%;
+    font-size: 14px;
+    font-weight: 700;
+    color: black;
+    margin-left: 5px;
+}
