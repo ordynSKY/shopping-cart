@@ -11,7 +11,7 @@ export const productsFetch = createAsyncThunk(
     "products/productsFetch",
     async () => {
         try {
-            const resp = await axios.get("http://localhost:5000/products");
+            const resp = await axios.get(process.env.REACT_APP_BASE_URL);
             return resp?.data;
         } catch (err) {
             console.log(err);
