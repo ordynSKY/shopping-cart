@@ -1,6 +1,11 @@
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { removeFromCart } from "../../slices/cartSlice";
+import {
+    addToCart,
+    clearCart,
+    decreaseCart,
+    removeFromCart,
+} from "../../slices/cartSlice";
 import styles from "./Cart.module.css";
 
 const Cart = () => {
@@ -9,6 +14,18 @@ const Cart = () => {
 
     const handleRemoveFromCart = (cartItem) => {
         dispatch(removeFromCart(cartItem));
+    };
+
+    const handleDecreaseCart = (cartItem) => {
+        dispatch(decreaseCart(cartItem));
+    };
+
+    const handleIncreaseCart = (cartItem) => {
+        dispatch(addToCart(cartItem));
+    };
+
+    const handleClearCart = () => {
+        dispatch(clearCart());
     };
 
     return (
@@ -73,11 +90,23 @@ const Cart = () => {
                                         {cartItem.price}$
                                     </div>
                                     <div className={styles.productQuantity}>
-                                        <button>-</button>
+                                        <button
+                                            onClick={() =>
+                                                handleDecreaseCart(cartItem)
+                                            }
+                                        >
+                                            -
+                                        </button>
                                         <div className={styles.count}>
                                             {cartItem.cartQuantity}
                                         </div>
-                                        <button>+</button>
+                                        <button
+                                            onClick={() =>
+                                                handleIncreaseCart(cartItem)
+                                            }
+                                        >
+                                            +
+                                        </button>
                                     </div>
                                     <div className={styles.totalPrice}>
                                         {cartItem.price * cartItem.cartQuantity}
@@ -87,7 +116,10 @@ const Cart = () => {
                             ))}
                         </div>
                         <div className={styles.summary}>
-                            <button className={styles.clear}>
+                            <button
+                                className={styles.clear}
+                                onClick={() => handleClearCart()}
+                            >
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     width="16"
