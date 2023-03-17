@@ -9,30 +9,31 @@ import {
     removeFromCart,
 } from "../../slices/cartSlice";
 import { arrowLeft, checkoutSvg, clearSvg } from "../../svg";
+import { cartItemType, stateType } from "../../types";
 import styles from "./Cart.module.css";
 
 const Cart = () => {
-    const cart = useSelector((state) => state.cart);
+    const cart = useSelector((state: stateType) => state.cart);
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(getTotal());
+        dispatch(getTotal(null));
     }, [cart, dispatch]);
 
-    const handleRemoveFromCart = (cartItem) => {
+    const handleRemoveFromCart = (cartItem: cartItemType) => {
         dispatch(removeFromCart(cartItem));
     };
 
-    const handleDecreaseCart = (cartItem) => {
+    const handleDecreaseCart = (cartItem: cartItemType) => {
         dispatch(decreaseCart(cartItem));
     };
 
-    const handleIncreaseCart = (cartItem) => {
+    const handleIncreaseCart = (cartItem: cartItemType) => {
         dispatch(addToCart(cartItem));
     };
 
     const handleClearCart = () => {
-        dispatch(clearCart());
+        dispatch(clearCart(null));
     };
 
     return (
@@ -58,7 +59,7 @@ const Cart = () => {
                             <h3 className={styles.total}>Total</h3>
                         </div>
                         <div className={styles.items}>
-                            {cart.cartItems?.map((cartItem) => (
+                            {cart.cartItems?.map((cartItem: cartItemType) => (
                                 <div key={cartItem.id} className={styles.item}>
                                     <div className={styles.product}>
                                         <img
@@ -68,6 +69,7 @@ const Cart = () => {
                                         <div>
                                             <h3>{cartItem.name}</h3>
                                             <p>{cartItem.desc}</p>
+
                                             <button
                                                 onClick={() =>
                                                     handleRemoveFromCart(
