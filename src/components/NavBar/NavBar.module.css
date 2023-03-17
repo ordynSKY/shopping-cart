@@ -12,6 +12,12 @@
     font-size: 40px;
 }
 
+@media (max-width: 375px) {
+    .navbar h2 {
+        font-size: 30px;
+    }
+}
+
 .cartIcon {
     display: flex;
     align-items: center;

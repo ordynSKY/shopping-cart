@@ -2,6 +2,12 @@
     padding: 2rem 4rem;
 }
 
+@media (max-width: 375px) {
+    .container {
+        padding: 0.5rem 1rem;
+    }
+}
+
 .container h2 {
     font-weight: 400;
     font-size: 30px;
@@ -16,6 +22,12 @@
     font-size: 14px;
     font-weight: 400;
     text-transform: uppercase;
+}
+
+@media (max-width: 375px) {
+    .container .titles h3 {
+        font-size: 10px;
+    }
 }
 
 .item,
@@ -50,8 +62,29 @@
     margin-right: 1rem;
 }
 
+@media (max-width: 375px) {
+    .item .product img {
+        width: 50px;
+        height: 90px;
+        max-width: 100%;
+        margin-right: 0.5rem;
+    }
+}
+
 .item .product h3 {
     font-weight: 400;
+}
+
+@media (max-width: 375px) {
+    .item .product h3 {
+        font-size: 10px;
+    }
+    p {
+        font-size: 10px;
+    }
+    div {
+        font-size: 10px;
+    }
 }
 
 .item .product button {
@@ -77,12 +110,28 @@
     border-radius: 5px;
 }
 
+@media (max-width: 375px) {
+    .productQuantity {
+        width: 50px;
+        max-width: 100%;
+        border: 0.5px solid rgb(177, 177, 177);
+        border-radius: 5px;
+        align-items: center;
+    }
+}
+
 .productQuantity button {
     border: none;
     outline: none;
     background: none;
     padding: 0.7rem 1.5rem;
     cursor: pointer;
+}
+
+@media (max-width: 375px) {
+    .productQuantity button {
+        padding: 0.1rem 0.7rem;
+    }
 }
 
 .productQuantity .count {
@@ -118,6 +167,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+@media (max-width: 375px) {
+    .summary .clear {
+        margin-top: 4.6rem;
+        margin-left: 1.5rem;
+    }
 }
 
 .clear:hover {
@@ -162,6 +218,13 @@
     align-items: center;
 }
 
+@media (max-width: 375px) {
+    .checkout button {
+        width: 111px;
+        margin-left: 5rem;
+    }
+}
+
 .checkout button:hover {
     background-color: #00bfff;
     color: white;
@@ -170,6 +233,13 @@
 .continueShopping,
 .startShopping {
     margin-top: 1rem;
+}
+
+@media (max-width: 375px) {
+    .continueShopping {
+        display: flex;
+        justify-content: flex-end;
+    }
 }
 
 .continueShopping a,

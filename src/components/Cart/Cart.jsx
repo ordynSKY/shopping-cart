@@ -78,9 +78,7 @@ const Cart = () => {
                                         />
                                         <div>
                                             <h3>{cartItem.name}</h3>
-                                            <p style={{ fontSize: 13 }}>
-                                                {cartItem.desc}
-                                            </p>
+                                            <p>{cartItem.desc}</p>
                                             <button
                                                 onClick={() =>
                                                     handleRemoveFromCart(
