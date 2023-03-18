@@ -1,5 +1,6 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { Reorder } from "framer-motion";
 import { Link } from "react-router-dom";
 import {
     addToCart,
@@ -36,6 +37,8 @@ const Cart = () => {
         dispatch(clearCart(null));
     };
 
+    const [items, setItems] = useState(cart.cartItems);
+
     return (
         <>
             <div className={styles.container}>
@@ -59,56 +62,81 @@ const Cart = () => {
                             <h3 className={styles.total}>Total</h3>
                         </div>
                         <div className={styles.items}>
-                            {cart.cartItems?.map((cartItem: cartItemType) => (
-                                <div key={cartItem.id} className={styles.item}>
-                                    <div className={styles.product}>
-                                        <img
-                                            src={cartItem.image}
-                                            alt={cartItem.name}
-                                        />
-                                        <div>
-                                            <h3>{cartItem.name}</h3>
-                                            <p>{cartItem.desc}</p>
+                            <Reorder.Group
+                                axis="y"
+                                values={items}
+                                onReorder={setItems}
+                            >
+                                {items?.map((cartItem: cartItemType) => (
+                                    <Reorder.Item
+                                        key={cartItem.id}
+                                        value={cartItem}
+                                    >
+                                        <div
+                                            key={cartItem.id}
+                                            className={styles.item}
+                                        >
+                                            <div className={styles.product}>
+                                                <img
+                                                    src={cartItem.image}
+                                                    alt={cartItem.name}
+                                                />
+                                                <div>
+                                                    <h3>{cartItem.name}</h3>
+                                                    <p>{cartItem.desc}</p>
 
-                                            <button
-                                                onClick={() =>
-                                                    handleRemoveFromCart(
-                                                        cartItem
-                                                    )
+                                                    <button
+                                                        onClick={() =>
+                                                            handleRemoveFromCart(
+                                                                cartItem
+                                                            )
+                                                        }
+                                                    >
+                                                        Remove
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div
+                                                className={styles.productPrice}
+                                            >
+                                                {cartItem.price}$
+                                            </div>
+                                            <div
+                                                className={
+                                                    styles.productQuantity
                                                 }
                                             >
-                                                Remove
-                                            </button>
+                                                <button
+                                                    onClick={() =>
+                                                        handleDecreaseCart(
+                                                            cartItem
+                                                        )
+                                                    }
+                                                >
+                                                    -
+                                                </button>
+                                                <div className={styles.count}>
+                                                    {cartItem.cartQuantity}
+                                                </div>
+                                                <button
+                                                    onClick={() =>
+                                                        handleIncreaseCart(
+                                                            cartItem
+                                                        )
+                                                    }
+                                                >
+                                                    +
+                                                </button>
+                                            </div>
+                                            <div className={styles.totalPrice}>
+                                                {cartItem.price *
+                                                    cartItem.cartQuantity}
+                                                $
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div className={styles.productPrice}>
-                                        {cartItem.price}$
-                                    </div>
-                                    <div className={styles.productQuantity}>
-                                        <button
-                                            onClick={() =>
-                                                handleDecreaseCart(cartItem)
-                                            }
-                                        >
-                                            -
-                                        </button>
-                                        <div className={styles.count}>
-                                            {cartItem.cartQuantity}
-                                        </div>
-                                        <button
-                                            onClick={() =>
-                                                handleIncreaseCart(cartItem)
-                                            }
-                                        >
-                                            +
-                                        </button>
-                                    </div>
-                                    <div className={styles.totalPrice}>
-                                        {cartItem.price * cartItem.cartQuantity}
-                                        $
-                                    </div>
-                                </div>
-                            ))}
+                                    </Reorder.Item>
+                                ))}
+                            </Reorder.Group>
                         </div>
                         <div className={styles.summary}>
                             <button

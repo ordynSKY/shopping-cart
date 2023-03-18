@@ -11,7 +11,7 @@ export const productsFetch = createAsyncThunk(
     "products/productsFetch",
     async () => {
         try {
-            const resp = await axios.get(process.env.REACT_APP_BASE_URL);
+            const resp = await axios.get(process.env.REACT_APP_BASE_URL || "");
             return resp?.data;
         } catch (err) {
             console.log(err);
@@ -23,17 +23,19 @@ const productsSlice = createSlice({
     name: "products",
     initialState,
     reducers: {},
-    extraReducers: {
-        [productsFetch.pending]: (state, action) => {
+    extraReducers: (builder) => {
+        builder.addCase(productsFetch.pending, (state: any, action) => {
             state.status = "pending";
-        },
-        [productsFetch.fulfilled]: (state, action) => {
+        });
+
+        builder.addCase(productsFetch.fulfilled, (state: any, action) => {
             state.status = "success";
             state.items = action.payload;
-        },
-        [productsFetch.rejected]: (state, action) => {
+        });
+
+        builder.addCase(productsFetch.rejected, (state: any, action) => {
             state.status = "rejected";
-        },
+        });
     },
 });
 
