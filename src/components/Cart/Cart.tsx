@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Reorder } from "framer-motion";
+import { Reorder, useDragControls } from "framer-motion";
 import { Link } from "react-router-dom";
 import {
     addToCart,
@@ -12,6 +12,7 @@ import {
 import { arrowLeft, checkoutSvg, clearSvg } from "../../svg";
 import { cartItemType, stateType } from "../../types";
 import styles from "./Cart.module.css";
+import { ReorderIcon } from "../../Icon";
 
 const Cart = () => {
     const cart = useSelector((state: stateType) => state.cart);
@@ -38,6 +39,8 @@ const Cart = () => {
     };
 
     const [items, setItems] = useState(cart.cartItems);
+
+    const dragControls = useDragControls();
 
     return (
         <>
@@ -71,12 +74,17 @@ const Cart = () => {
                                     <Reorder.Item
                                         key={cartItem.id}
                                         value={cartItem}
+                                        dragListener={false}
+                                        dragControls={dragControls}
                                     >
                                         <div
                                             key={cartItem.id}
                                             className={styles.item}
                                         >
                                             <div className={styles.product}>
+                                                <ReorderIcon
+                                                    dragControls={dragControls}
+                                                />
                                                 <img
                                                     src={cartItem.image}
                                                     alt={cartItem.name}
