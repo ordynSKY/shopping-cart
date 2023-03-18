@@ -2,6 +2,8 @@
 
 Product catalog with the ability to add them to the cart
 
+![ezgif-2-e89177b59c](https://user-images.githubusercontent.com/104451570/226122606-51a4dbc9-22ba-4fba-b593-c9500ddc8749.gif)
+
 ## Available Scripts
 
 In the project directory, you can run:
@@ -38,3 +40,6 @@ To start the server, you need to install all dependencies from the backend folde
 
 1) The function of saving the state of the shopping cart between user sessions using local storage was implemented.
 2) The possibility of dragging goods into the cart using Drag and Drop was also implemented.
+
+
+
