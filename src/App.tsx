@@ -8,19 +8,19 @@ import NavBar from "./components/NavBar/NavBar";
 import NotFound from "./components/NotFound/NotFound";
 
 function App() {
-    return (
-        <div className="App">
-            <BrowserRouter>
-                <ToastContainer />
-                <NavBar />
-                <Routes>
-                    <Route path="/cart" Component={Cart} />
-                    <Route path="/*" Component={NotFound} />
-                    <Route path="/" Component={Home} />
-                </Routes>
-            </BrowserRouter>
-        </div>
-    );
+  return (
+    <div className="App">
+      <BrowserRouter>
+        <ToastContainer />
+        <NavBar />
+        <Routes>
+          <Route path="/cart" Component={Cart} />
+          <Route path="/*" Component={NotFound} />
+          <Route path="/" Component={Home} />
+        </Routes>
+      </BrowserRouter>
+    </div>
+  );
 }
 
 export default App;

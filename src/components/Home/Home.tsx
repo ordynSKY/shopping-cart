@@ -8,42 +8,42 @@ import styles from "./Home.module.css";
 import Product from "./Product";
 
 const Home = () => {
-    const navigate = useNavigate();
-    const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-    const handleAddToCart = (product: product) => {
-        dispatch(addToCart(product));
-        navigate("/cart");
-    };
+  const handleAddToCart = (product: product) => {
+    dispatch(addToCart(product));
+    navigate("/cart");
+  };
 
-    const products = useSelector((state: stateType) => {
-        return state.products.products;
-    });
-    useEffect(() => {
-        dispatch(getProducts());
-    }, [dispatch]);
+  const products = useSelector((state: stateType) => {
+    return state.products.products;
+  });
+  useEffect(() => {
+    dispatch(getProducts());
+  }, [dispatch]);
 
-    return (
+  return (
+    <>
+      <div className={styles.container}>
         <>
-            <div className={styles.container}>
-                <>
-                    <h2>Our products</h2>
-                    <div className={styles.items}>
-                        {products?.map((product: product) => (
-                            <Product
-                                key={product.id}
-                                name={product.name}
-                                image={product.image}
-                                desc={product.desc}
-                                price={product.price}
-                                handleAddToCart={handleAddToCart}
-                            />
-                        ))}
-                    </div>
-                </>
-            </div>
+          <h2>Our products</h2>
+          <div className={styles.items}>
+            {products?.map((product: product) => (
+              <Product
+                key={product.id}
+                name={product.name}
+                image={product.image}
+                desc={product.desc}
+                price={product.price}
+                handleAddToCart={handleAddToCart}
+              />
+            ))}
+          </div>
         </>
-    );
+      </div>
+    </>
+  );
 };
 
 export default Home;

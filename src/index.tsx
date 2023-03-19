@@ -11,12 +11,12 @@ import productsReducer from "./slices/productsSlice";
 const sagaMiddleware = createSagaMiddleware();
 
 export const store = configureStore({
-    reducer: {
-        products: productsReducer,
-        cart: cartReducer,
-    },
-    middleware: (getDefaultMiddleware) =>
-        getDefaultMiddleware().concat(sagaMiddleware),
+  reducer: {
+    products: productsReducer,
+    cart: cartReducer,
+  },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(sagaMiddleware),
 });
 
 sagaMiddleware.run(watcherSaga);
@@ -24,12 +24,12 @@ sagaMiddleware.run(watcherSaga);
 store.dispatch(getTotal(null));
 
 const root = ReactDOM.createRoot(
-    document.getElementById("root") as HTMLElement
+  document.getElementById("root") as HTMLElement
 );
 root.render(
-    <React.StrictMode>
-        <Provider store={store}>
-            <App />
-        </Provider>
-    </React.StrictMode>
+  <React.StrictMode>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </React.StrictMode>
 );
