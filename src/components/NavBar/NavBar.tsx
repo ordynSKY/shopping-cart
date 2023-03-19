@@ -17,7 +17,9 @@ const NavBar = () => {
                     <div className={styles.cartIcon}>
                         {cartSvg}
                         <span className={styles.cartQuantity}>
-                            <span>{cartTotalQuantity}</span>
+                            <span style={{ color: "white", fontSize: 10 }}>
+                                {cartTotalQuantity}
+                            </span>
                         </span>
                     </div>
                 </Link>
