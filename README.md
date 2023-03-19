@@ -39,7 +39,7 @@ To start the server, you need to install all dependencies from the backend folde
 ### What was done additionally:
 
 1) The function of saving the state of the shopping cart between user sessions using local storage was implemented.
-2) The possibility of dragging products into the cart using Drag and Drop was also implemented.
+
 
 
 
