@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { addToCart } from "../../slices/cartSlice";
+import { addToCart } from "slices/cartSlice";
 import { getProducts } from "../../slices/productsSlice";
 import { product, stateType } from "../../types";
 import styles from "./Home.module.css";
@@ -37,6 +37,7 @@ const Home = () => {
                 desc={product.desc}
                 price={product.price}
                 handleAddToCart={handleAddToCart}
+                product={product}
               />
             ))}
           </div>
