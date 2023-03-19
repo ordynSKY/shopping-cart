@@ -53,34 +53,20 @@ export type cartType = {
 };
 
 export type productType = {
-    error: null;
-    items: string;
-    status: string;
+    desc: string;
+    id: number;
+    image: string;
+    name: string;
+    price: number;
 };
 
-export type configType = {
-    focused: boolean;
-    keepUnusedDataFor: number;
-    middlewareRegistered: boolean;
-    online: boolean;
-    reducerPath: string;
-    refetchOnFocus: boolean;
-    refetchOnMountOrArgChange: boolean;
-    refetchOnReconnect: boolean;
-};
-
-export type productsApiType = {
-    config: configType;
-    mutations: object;
-    provided: object;
-    queries: object;
-    subscriptions: object;
+export type productsType = {
+    products: productType[];
 };
 
 export type stateType = {
     cart: cartType;
-    products: productType;
-    productsApi: productsApiType;
+    products: productsType;
 };
 
 export type cartTotalType = {

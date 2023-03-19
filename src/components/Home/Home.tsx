@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { addToCart } from "../../slices/cartSlice";
 import { getProducts } from "../../slices/productsSlice";
 import { addToCartSvg } from "../../svg";
-import { product } from "../../types";
+import { product, stateType } from "../../types";
 import styles from "./Home.module.css";
 
 const Home = () => {
@@ -16,7 +16,10 @@ const Home = () => {
         navigate("/cart");
     };
 
-    const products = useSelector((state: any) => state.products.products);
+    const products = useSelector((state: stateType) => {
+        console.log("state: ", state.products);
+        return state.products.products;
+    });
     useEffect(() => {
         dispatch(getProducts());
     }, [dispatch]);

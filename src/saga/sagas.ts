@@ -5,7 +5,6 @@ import { getProducts, setProducts } from "../slices/productsSlice";
 export function* getProductsData() {
     try {
         const { data } = yield call(fetchProducts);
-        console.log("yield:", data);
         yield put(setProducts(data));
     } catch (error) {
         console.log(error);
