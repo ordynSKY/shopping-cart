@@ -30,7 +30,7 @@ To start the server, you need to install all dependencies from the backend folde
 4) The Redux Toolkit was used to store project states.
 5) The functionality of adding and removing products from the cart with the possibility of changing the number of products was developed.
 6) Lists of products with names, prices and quantities were displayed.
-7) Data validation was developed when adding a product to the cart.
+7) Data validation was developed when adding a products to the cart.
 8) The function of displaying the sum of all products in the cart was implemented.
 9) The functionality of adding and removing products from the cart with validation was implemented.
 10) Saga was used for asynchronous operations.
@@ -39,7 +39,7 @@ To start the server, you need to install all dependencies from the backend folde
 ### What was done additionally:
 
 1) The function of saving the state of the shopping cart between user sessions using local storage was implemented.
-2) The possibility of dragging goods into the cart using Drag and Drop was also implemented.
+2) The possibility of dragging products into the cart using Drag and Drop was also implemented.
 
 
 
