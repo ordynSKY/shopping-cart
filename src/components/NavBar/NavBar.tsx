@@ -2,9 +2,11 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { cartSvg } from "../../svg";
 import styles from "./NavBar.module.css";
+import { stateType } from "../../types";
 
 const NavBar = () => {
-    const { cartTotalQuantity } = useSelector((state) => state.cart);
+    const { cartTotalQuantity } = useSelector((state: stateType) => state.cart);
+
     return (
         <>
             <nav className={styles.navbar}>
