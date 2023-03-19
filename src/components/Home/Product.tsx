@@ -1,11 +1,11 @@
 import styles from "./Home.module.css";
-import { addToCartSvg } from "../../svg";
+import { addToCartSvg } from "svg";
 
 const Product = (props: any) => {
   const { handleAddToCart, product } = props;
-  const { name, image, desc, price, key } = product;
+  const { name, image, desc, price } = product;
   return (
-    <div className={styles.product} key={key}>
+    <div className={styles.product}>
       <h3>{name}</h3>
       <img src={image} className={styles.image} alt="iphone" />
       <div className={styles.description}>

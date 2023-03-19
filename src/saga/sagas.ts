@@ -1,6 +1,6 @@
 import { put, call, takeEvery } from "redux-saga/effects";
 import { fetchProducts } from "./request";
-import { getProducts, setProducts } from "../slices/productsSlice";
+import { getProducts, setProducts } from "slices/productsSlice";
 
 export function* getProductsData() {
   try {
