@@ -2,22 +2,25 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import { configureStore } from "@reduxjs/toolkit";
+import createSagaMiddleware from "@redux-saga/core";
 import { Provider } from "react-redux";
-import productsReducer, { productsFetch } from "./slices/productsSlice";
-import { productsApi } from "./slices/productsApi";
 import cartReducer, { getTotal } from "./slices/cartSlice";
+import { watcherSaga } from "./saga/sagas";
+import productsReducer from "./slices/productsSlice";
 
-const store = configureStore({
+const sagaMiddleware = createSagaMiddleware();
+
+export const store = configureStore({
     reducer: {
         products: productsReducer,
         cart: cartReducer,
-        [productsApi.reducerPath]: productsApi.reducer,
     },
     middleware: (getDefaultMiddleware) =>
-        getDefaultMiddleware().concat(productsApi.middleware),
+        getDefaultMiddleware().concat(sagaMiddleware),
 });
 
-store.dispatch(productsFetch());
+sagaMiddleware.run(watcherSaga);
+
 store.dispatch(getTotal(null));
 
 const root = ReactDOM.createRoot(
